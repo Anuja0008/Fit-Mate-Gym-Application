@@ -40,6 +40,8 @@
         <activity android:name=".activities.StepCounterActivity"/>
         <activity android:name=".activities.HealthTipsActivity"/>
         <activity android:name=".activities.AmbientLightActivity"/>
+        <activity android:name=".activities.WaterTrackerActivity"/>
+
 
         <!-- <activity android:name=".activities.NearestGymActivity" /> -->
 

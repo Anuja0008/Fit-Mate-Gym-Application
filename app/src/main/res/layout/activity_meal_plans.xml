@@ -248,32 +248,6 @@
             app:cardBackgroundColor="#EDE7F6"
             android:layout_marginBottom="16dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:id="@+id/tvExercisePlanLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Exercise Plan"
-                    android:textSize="14sp"
-                    android:textColor="#5E35B1"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/tvExercisePlan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Exercise plan loading..."
-                    android:textSize="16sp"
-                    android:textColor="#333333"
-                    android:lineSpacingExtra="6dp"
-                    android:fontFamily="sans-serif" />
-            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
 

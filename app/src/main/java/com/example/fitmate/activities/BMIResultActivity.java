@@ -78,6 +78,7 @@ public class BMIResultActivity extends AppCompatActivity {
 
         btnStepCounter.setOnClickListener(v -> {
             Intent intent = new Intent(BMIResultActivity.this, StepCounterActivity.class);
+            intent.putExtra("USER_EMAIL", email);
             startActivity(intent);
         });
 
@@ -98,12 +99,15 @@ public class BMIResultActivity extends AppCompatActivity {
         // Ambient Light button
         btnAmbientLight.setOnClickListener(v -> {
             Intent intent = new Intent(BMIResultActivity.this, AmbientLightActivity.class);
+            intent.putExtra("USER_EMAIL", email);
             startActivity(intent);
         });
 
-        // Thermo button
+        // Thermo button — Pass email here!
         btnThermo.setOnClickListener(v -> {
-            Toast.makeText(this, "Thermo feature coming soon!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(BMIResultActivity.this, WaterTrackerActivity.class);
+            intent.putExtra("USER_EMAIL", email);  // Pass the email to WaterTrackerActivity
+            startActivity(intent);
         });
     }
 

@@ -216,8 +216,9 @@
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
                 app:cornerRadius="16dp"
-                app:backgroundTint="#7E57C2"
-                android:text="SOS"
+                app:backgroundTint="#E53935"
+                android:text="🆘 SOS"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
@@ -226,8 +227,9 @@
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
                 app:cornerRadius="16dp"
-                app:backgroundTint="#7E57C2"
-                android:text="Steps"
+                app:backgroundTint="#00897B"
+                android:text="🚶 Steps"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
@@ -236,9 +238,14 @@
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
                 app:cornerRadius="16dp"
-                app:backgroundTint="#7E57C2"
-                android:text="Tips"
-                android:textColor="#FFFFFF" />
+                app:backgroundTint="#673AB7"
+            android:text="💡 Tips"
+                android:textStyle="bold"
+            android:textColor="#FFFFFF"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            app:iconPadding="8dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnReports"
@@ -246,9 +253,13 @@
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
                 app:cornerRadius="16dp"
-                app:backgroundTint="#7E57C2"
-                android:text="Doctor"
-                android:textColor="#FFFFFF" />
+                app:backgroundTint="#1976D2"
+            android:text="🩺 Doctor"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAmbientLight"
@@ -256,9 +267,11 @@
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
                 app:cornerRadius="16dp"
-                app:backgroundTint="#7E57C2"
-                android:text="Lumens"
-                android:textColor="#FFFFFF" />
+                app:backgroundTint="#4A90E2"
+            android:text="🌞Lumens"
+                android:textStyle="bold"
+            android:textColor="#FFFFFF" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnThermo"
@@ -266,8 +279,9 @@
                 android:layout_height="100dp"
                 android:layout_columnWeight="1"
                 app:cornerRadius="16dp"
-                app:backgroundTint="#7E57C2"
-                android:text="Thermo"
+                app:backgroundTint="#2037e3"
+                android:text="💧H2O"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF" />
         </GridLayout>
     </LinearLayout>
