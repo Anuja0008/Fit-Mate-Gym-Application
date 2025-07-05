@@ -225,7 +225,7 @@ public class RegisterUserActivity extends AppCompatActivity {
             reportData.put("bmi", bmi);
             reportData.put("bmiStatus", statusText);
 
-            // ✅ Boolean values for diseases
+
             reportData.put("hasDiabetes", cbDiabetes.isChecked());
             reportData.put("hasCholesterol", cbCholesterol.isChecked());
             reportData.put("hasHeartDisease", cbHeart.isChecked());

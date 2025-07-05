@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Greeting & Action -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:textColor="#1976D2" />
     </LinearLayout>
 
-    <!-- BMI Form -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -58,7 +58,7 @@
                 android:layout_marginBottom="24dp"
                 android:gravity="center" />
 
-            <!-- User ID -->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Age -->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -100,7 +100,6 @@
                     android:longClickable="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Height -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -117,7 +116,6 @@
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Weight -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -134,7 +132,7 @@
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Conditions Title -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,7 +142,7 @@
                 android:textSize="16sp"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Checkboxes -->
+
             <CheckBox
                 android:id="@+id/cbDiabetes"
                 android:layout_width="match_parent"
@@ -170,7 +168,7 @@
                 android:text="Cancer"
                 android:layout_marginBottom="24dp" />
 
-            <!-- BMI Result -->
+
             <TextView
                 android:id="@+id/tvBmiResult"
                 android:layout_width="wrap_content"
@@ -181,7 +179,6 @@
                 android:layout_marginBottom="12dp"
                 android:visibility="gone" />
 
-            <!-- BMI Status -->
             <TextView
                 android:id="@+id/tvBmiStatus"
                 android:layout_width="wrap_content"
@@ -192,7 +189,7 @@
                 android:layout_marginBottom="16dp"
                 android:visibility="gone" />
 
-            <!-- Submit -->
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSubmitUserData"
                 android:layout_width="match_parent"
@@ -203,7 +200,7 @@
                 android:textColor="@android:color/white"
                 android:layout_marginBottom="12dp" />
 
-            <!-- View BMI -->
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnViewBMI"
                 android:layout_width="match_parent"

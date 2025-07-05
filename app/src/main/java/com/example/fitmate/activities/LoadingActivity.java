@@ -15,11 +15,11 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        // Wait 2.5 seconds, then go to LoginUser activity
+
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(LoadingActivity.this, LoginUser.class);
             startActivity(intent);
-            finish(); // finish to remove this activity from back stack
-        }, 2500); // Delay in milliseconds (2500 = 2.5 seconds)
+            finish();
+        }, 2500);
     }
 }

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.fitmate.R;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
@@ -94,26 +93,48 @@ public class HistoryActivity extends AppCompatActivity {
     private void displayHistory(List<DocumentSnapshot> docs) {
         StringBuilder builder = new StringBuilder();
         int index = 1;
+
         for (DocumentSnapshot doc : docs) {
             builder.append(index).append(".\n")
-                    .append("📅 Date: ").append(doc.getString("date")).append("\n")
-                    .append("🎂 Age: ").append(doc.getLong("age")).append("\n")
-                    .append("⚖️ Weight: ").append(doc.getDouble("weight")).append(" kg\n")
-                    .append("📏 Height: ").append(doc.getDouble("height")).append(" cm\n")
-                    .append("🧮 BMI: ").append(doc.getDouble("bmi")).append("\n")
-                    .append("📊 Status: ").append(doc.getString("bmiStatus")).append("\n")
-                    .append("🦠 Disease 1: ").append(doc.getString("disease1")).append("\n")
-                    .append("🦠 Disease 2: ").append(doc.getString("disease2")).append("\n")
-                    .append("🦠 Disease 3: ").append(doc.getString("disease3")).append("\n")
-                    .append("🦠 Disease 4: ").append(doc.getString("disease4")).append("\n")
-                    .append("---------------------------------------------\n");
+                    .append("📅 Date: ").append(getSafeString(doc, "date")).append("\n")
+                    .append("🎂 Age: ").append(getSafeLong(doc, "age")).append("\n")
+                    .append("⚖️ Weight: ").append(getSafeDouble(doc, "weight")).append(" kg\n")
+                    .append("📏 Height: ").append(getSafeDouble(doc, "height")).append(" cm\n")
+                    .append("🧮 BMI: ").append(getSafeDouble(doc, "bmi")).append("\n")
+                    .append("📊 Status: ").append(getSafeString(doc, "bmiStatus")).append("\n")
+                    .append("🦠 Health Conditions:\n");
+
+            boolean hasAny = false;
+
+            if (Boolean.TRUE.equals(doc.getBoolean("hasHeartDisease"))) {
+                builder.append("   ❤️ Heart Disease\n");
+                hasAny = true;
+            }
+            if (Boolean.TRUE.equals(doc.getBoolean("hasDiabetes"))) {
+                builder.append("   🍬 Diabetes\n");
+                hasAny = true;
+            }
+            if (Boolean.TRUE.equals(doc.getBoolean("hasCancer"))) {
+                builder.append("   🎗️ Cancer\n");
+                hasAny = true;
+            }
+            if (Boolean.TRUE.equals(doc.getBoolean("hasCholesterol"))) {
+                builder.append("   🧈 Cholesterol\n");
+                hasAny = true;
+            }
+
+            if (!hasAny) {
+                builder.append("   ✅ No known conditions\n");
+            }
+
+            builder.append("---------------------------------------------\n");
             index++;
         }
+
         historyTextView.setText(builder.toString());
     }
 
     private void clearAllHistory(String userEmail) {
-        // Query all history documents of user
         db.collection("History")
                 .whereEqualTo("email", userEmail)
                 .get()
@@ -122,7 +143,7 @@ public class HistoryActivity extends AppCompatActivity {
                         Toast.makeText(this, "No history to clear.", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    // Delete each document one by one
+
                     for (DocumentSnapshot doc : querySnapshots.getDocuments()) {
                         db.collection("History").document(doc.getId()).delete();
                     }
@@ -133,5 +154,21 @@ public class HistoryActivity extends AppCompatActivity {
                     Toast.makeText(this, "Failed to clear history.", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "Clear history failed", e);
                 });
+    }
+
+    // Helper functions for null-safe retrieval
+    private String getSafeString(DocumentSnapshot doc, String field) {
+        String value = doc.getString(field);
+        return (value != null && !value.isEmpty()) ? value : "N/A";
+    }
+
+    private long getSafeLong(DocumentSnapshot doc, String field) {
+        Long value = doc.getLong(field);
+        return (value != null) ? value : 0L;
+    }
+
+    private double getSafeDouble(DocumentSnapshot doc, String field) {
+        Double value = doc.getDouble(field);
+        return (value != null) ? value : 0.0;
     }
 }

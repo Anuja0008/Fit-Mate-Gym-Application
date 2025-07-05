@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGender.setAdapter(genderAdapter);
 
-        // Date picker for DOB
+
         edtDob.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
             datePickerDialog.show();
         });
 
-        // Register button click
+
         btnRegister.setOnClickListener(v -> validateAndRegister());
     }
 
@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
         String password = edtPassword.getText().toString().trim();
         String confirmPassword = edtConfirmPassword.getText().toString().trim();
 
-        // Input validation
+
         if (TextUtils.isEmpty(name)
                 || TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()
                 || TextUtils.isEmpty(dob)
@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // 🔍 Check if user with same email already exists
+
         db.collection("users")
                 .whereEqualTo("email", email)
                 .get()

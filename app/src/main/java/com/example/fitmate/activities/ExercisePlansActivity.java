@@ -134,7 +134,7 @@ public class ExercisePlansActivity extends AppCompatActivity {
                         tvExercisePlan.setText(exercisePlan);
                         currentExercisePlanText = exercisePlan;
 
-                        // Save exercise plan to Firestore "Exercise" collection
+
                         saveExercisePlanToFirestore(email, exercisePlan);
 
                         btnDownloadPdf.setEnabled(true);
@@ -223,14 +223,14 @@ public class ExercisePlansActivity extends AppCompatActivity {
                         Toast.makeText(ExercisePlansActivity.this, "Failed to save exercise plan.", Toast.LENGTH_SHORT).show());
     }
 
-    // PDF generation methods
+
 
     private boolean checkPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             int result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
             return result == PackageManager.PERMISSION_GRANTED;
         }
-        return true; // Permission automatically granted on older versions
+        return true;
     }
 
     private void requestPermission() {
@@ -281,7 +281,6 @@ public class ExercisePlansActivity extends AppCompatActivity {
 
         y += 40;
 
-        // Split text into lines (handling multi-line text)
         String[] lines = textContent.split("\n");
         for (String line : lines) {
             // If line is too long, wrap (basic)
@@ -302,7 +301,7 @@ public class ExercisePlansActivity extends AppCompatActivity {
 
         pdfDocument.finishPage(page);
 
-        // Save to external storage directory
+
         String fileName = "ExercisePlan_" + System.currentTimeMillis() + ".pdf";
         File pdfFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
 

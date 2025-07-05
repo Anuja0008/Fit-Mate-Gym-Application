@@ -94,6 +94,6 @@ public class AmbientLightActivity extends AppCompatActivity implements SensorEve
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Not used
+
     }
 }

@@ -27,15 +27,15 @@ public class BMIResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_result);
 
-        // Initialize Firestore
+
         db = FirebaseFirestore.getInstance();
 
-        // TextViews
+
         tvBmiValue = findViewById(R.id.tvBmiValue);
         tvBmiStatus = findViewById(R.id.tvBmiStatus);
         tvEmail = findViewById(R.id.tvEmail);
 
-        // Buttons
+
         btnMealPlans = findViewById(R.id.btnMealPlans);
         btnExercisePlans = findViewById(R.id.btnExercisePlans);
         btnEmergency = findViewById(R.id.btnEmergency);
@@ -43,27 +43,27 @@ public class BMIResultActivity extends AppCompatActivity {
         btnHealthTips = findViewById(R.id.btnHealthTips);
         btnReports = findViewById(R.id.btnReports);
 
-        // New buttons
+
         btnAmbientLight = findViewById(R.id.btnAmbientLight);
         btnThermo = findViewById(R.id.btnThermo);
 
-        // Get Intent data
+
         float bmi = getIntent().getFloatExtra("BMI_VALUE", 0f);
         String status = getIntent().getStringExtra("BMI_STATUS");
         email = getIntent().getStringExtra("USER_EMAIL");
 
-        // Set BMI TextViews
+
         tvBmiValue.setText(String.format("Your BMI: %.2f", bmi));
         tvBmiStatus.setText("Status: " + status);
 
-        // Load user name by email and show welcome message
+
         if (email != null && !email.isEmpty()) {
             loadUserNameFromEmail(email);
         } else {
             tvEmail.setText("Welcome, Guest!");
         }
 
-        // Button Listeners
+
         btnMealPlans.setOnClickListener(v -> {
             Intent intent = new Intent(BMIResultActivity.this, MealPlansActivity.class);
             intent.putExtra("USER_EMAIL", email);
@@ -103,7 +103,7 @@ public class BMIResultActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Thermo button — Pass email here!
+
         btnThermo.setOnClickListener(v -> {
             Intent intent = new Intent(BMIResultActivity.this, WaterTrackerActivity.class);
             intent.putExtra("USER_EMAIL", email);  // Pass the email to WaterTrackerActivity
@@ -129,7 +129,7 @@ public class BMIResultActivity extends AppCompatActivity {
     }
 
     private void makeEmergencyCall() {
-        String phoneNumber = "1990"; // Sri Lanka emergency number
+        String phoneNumber = "1990";
         Intent dialIntent = new Intent(Intent.ACTION_DIAL);
         dialIntent.setData(Uri.parse("tel:" + phoneNumber));
         startActivity(dialIntent);

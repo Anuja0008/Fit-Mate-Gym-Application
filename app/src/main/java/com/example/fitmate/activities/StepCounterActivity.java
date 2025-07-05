@@ -35,8 +35,8 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
     private long lastStepTime = 0;
     private long startTime = 0L;
 
-    private static final float STEP_THRESHOLD = 1.5f; // Lower threshold for sensitive detection
-    private static final int STEP_INTERVAL_MS = 300;  // Reduced interval for quicker detection
+    private static final float STEP_THRESHOLD = 1.5f;
+    private static final int STEP_INTERVAL_MS = 300;
 
     private static final float STEP_LENGTH_METERS = 0.75f;
     private static final float CALORIES_PER_STEP = 0.04f;
@@ -150,12 +150,12 @@ public class StepCounterActivity extends AppCompatActivity implements SensorEven
             }
         }
 
-        lastMagnitude = smoothed; // update for next cycle
+        lastMagnitude = smoothed;
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Not needed
+
     }
 
     @Override
